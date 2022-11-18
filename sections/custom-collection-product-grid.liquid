@@ -1,0 +1,337 @@
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+<link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+{%- if section.settings.enable_quick_add -%}
+  <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.media='all'">
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+
+<section class="Products" id="ProductGridContainer">
+	<div class="container"  id="product-grid"  data-id="{{ section.id }}">
+		
+		<h2 class="section-heading mb-5"> {{ section.settings.heading }} </h2>
+		<div class="product-slider-tab" >
+			<ul class="nav nav-tabs" id="myTab" role="tablist">
+			  <li class="nav-item" role="presentation">
+			    <button class="nav-link active" id="Accessories-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Accessories</button>
+			  </li>
+			  <li class="nav-item" role="presentation">
+			    <button class="nav-link" id="rectangle-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">rectangle</button>
+			  </li>
+			  <li class="nav-item" role="presentation">
+			    <button class="nav-link" id="square-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">square</button>
+			  </li>
+			  <li class="nav-item" role="presentation">
+			    <button class="nav-link" id="ornaments-tab" data-bs-toggle="tab" data-bs-target="#ornaments" type="button" role="tab" aria-controls="ornaments" aria-selected="false">ornaments</button>
+			  </li>
+
+			</ul>
+				<div class="tab-content" id="myTabContent">
+				  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="Accessories-tab">
+				  	<div class="product-slider1">		
+				  			<div class="row">
+                              {% assign products = collections[section.settings.collection_1].products %}
+                              {% for product in products %}
+				  				<div class="col-sm-6 col-md-4 col-lg-3 mb-5">
+				  					{% render 'custom-product-card',
+                                      card_product: product,
+                                      show_rating: section.settings.show_rating,
+                                      lazy_load: lazy_load,
+                                      show_quick_add: section.settings.enable_quick_add,
+                                      section_id: section.id
+                  
+                                    %}
+				  				</div>
+                                  {% endfor %}
+				  			</div>
+				  		</div>
+				  	
+				  </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="rectangle-tab">
+				  	<div class="product-slider1">		
+				  			<div class="row">
+                                {% assign products = collections[section.settings.collection_1].products %}
+                              {% for product in products %}
+				  				<div class="col-sm-6 col-md-4 col-lg-3 mb-5">
+				  					{% render 'custom-product-card',
+                                      card_product: product,
+                                      show_rating: section.settings.show_rating,
+                                      lazy_load: lazy_load,
+                                      show_quick_add: section.settings.enable_quick_add,
+                                      section_id: section.id
+                  
+                                    %}
+				  				</div>
+                                  {% endfor %}
+                            </div>
+                    </div>
+                </div>
+                  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="square-tab">
+				  	<div class="product-slider1">		
+				  			<div class="row">
+                              {% assign products = collections[section.settings.collection_1].products %}
+                              {% for product in products %}
+				  				<div class="col-sm-6 col-md-4 col-lg-3 mb-5">
+				  					{% render 'custom-product-card',
+                                      card_product: product,
+                                      show_rating: section.settings.show_rating,
+                                      lazy_load: lazy_load,
+                                      show_quick_add: section.settings.enable_quick_add,
+                                      section_id: section.id
+                  
+                                    %}
+				  				</div>
+                                  {% endfor %}
+                            </div>
+                    </div>
+                </div>
+               <div class="tab-pane fade" id="ornaments" role="tabpanel" aria-labelledby="ornaments-tab">
+				  	<div class="product-slider1">		
+				  			<div class="row">
+                              {% assign products = collections[section.settings.collection_1].products %}
+                              {% for product in products %}
+				  				<div class="col-sm-6 col-md-4 col-lg-3 mb-5">
+				  					{% render 'custom-product-card',
+                                      card_product: product,
+                                      show_rating: section.settings.show_rating,
+                                      lazy_load: lazy_load,
+                                      show_quick_add: section.settings.enable_quick_add,
+                                      section_id: section.id
+                  
+                                    %}
+				  				</div>
+                                  {% endfor %}
+                            </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+	</div>
+</section>
+
+
+{% comment %}
+<section class="Products" id="ProductGridContainer">
+	<div class="container"  id="product-grid"  data-id="{{ section.id }}">
+		
+		<h2 class="section-heading mb-5"> {{ section.settings.heading }} </h2>
+		<div class="product-slider-tab" >
+			<ul class="nav nav-tabs" id="myTab" role="tablist">
+			  <li class="nav-item" role="presentation">
+			    <button class="nav-link active" id="Accessories-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Accessories</button>
+			  </li>
+			  <li class="nav-item" role="presentation">
+			    <button class="nav-link" id="rectangle-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">rectangle</button>
+			  </li>
+			  <li class="nav-item" role="presentation">
+			    <button class="nav-link" id="square-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">square</button>
+			  </li>
+			  <li class="nav-item" role="presentation">
+			    <button class="nav-link" id="ornaments-tab" data-bs-toggle="tab" data-bs-target="#ornaments" type="button" role="tab" aria-controls="ornaments" aria-selected="false">ornaments</button>
+			  </li>
+
+			</ul>
+				<div class="tab-content" id="myTabContent">
+				  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="Accessories-tab">
+				  	<div class="product-slider1">		
+				  			<div class="row">
+                              {% assign products = collections[section.settings.collection_1].products %}
+                              {% for product in products %}
+				  				<div class="col-sm-6 col-md-4 col-lg-3 mb-5">
+				  					{% render 'custom-product-card',
+                                      card_product: product,
+                                      show_rating: section.settings.show_rating,
+                                      lazy_load: lazy_load,
+                                      show_quick_add: section.settings.enable_quick_add,
+                                      section_id: section.id
+                  
+                                    %}
+				  				</div>
+                                  {% endfor %}
+				  			</div>
+				  		</div>
+				  	
+				  </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="rectangle-tab">
+				  	<div class="product-slider1">		
+				  			<div class="row">
+                                {% assign products = collections[section.settings.collection_1].products %}
+                              {% for product in products %}
+				  				<div class="col-sm-6 col-md-4 col-lg-3 mb-5">
+				  					{% render 'custom-product-card',
+                                      card_product: product,
+                                      show_rating: section.settings.show_rating,
+                                      lazy_load: lazy_load,
+                                      show_quick_add: section.settings.enable_quick_add,
+                                      section_id: section.id
+                  
+                                    %}
+				  				</div>
+                                  {% endfor %}
+                            </div>
+                    </div>
+                </div>
+                  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="square-tab">
+				  	<div class="product-slider1">		
+				  			<div class="row">
+                              {% assign products = collections[section.settings.collection_1].products %}
+                              {% for product in products %}
+				  				<div class="col-sm-6 col-md-4 col-lg-3 mb-5">
+				  					{% render 'custom-product-card',
+                                      card_product: product,
+                                      show_rating: section.settings.show_rating,
+                                      lazy_load: lazy_load,
+                                      show_quick_add: section.settings.enable_quick_add,
+                                      section_id: section.id
+                  
+                                    %}
+				  				</div>
+                                  {% endfor %}
+                            </div>
+                    </div>
+                </div>
+               <div class="tab-pane fade" id="ornaments" role="tabpanel" aria-labelledby="ornaments-tab">
+				  	<div class="product-slider1">		
+				  			<div class="row">
+                              {% assign products = collections[section.settings.collection_1].products %}
+                              {% for product in products %}
+				  				<div class="col-sm-6 col-md-4 col-lg-3 mb-5">
+				  					{% render 'custom-product-card',
+                                      card_product: product,
+                                      show_rating: section.settings.show_rating,
+                                      lazy_load: lazy_load,
+                                      show_quick_add: section.settings.enable_quick_add,
+                                      section_id: section.id
+                  
+                                    %}
+				  				</div>
+                                  {% endfor %}
+                            </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+	</div>
+</section
+{% endcomment %}
+{% schema %}
+  {
+    "name": "Collection Tabs",
+    "settings": 
+    [
+        {
+            "type" : "text",
+            "id" : "heading",
+            "label" : "Heading"
+        },
+                {
+                    "type" : "collection",
+                    "id" : "collection_1",
+                    "label" : "Collection"
+                },
+                {
+                    "type" : "collection",
+                    "id" : "collection_2",
+                    "label" : "Collection"
+                },
+                {
+                    "type" : "collection",
+                    "id" : "collection_3",
+                    "label" : "Collection"
+                },
+                {
+                    "type" : "collection",
+                    "id" : "collection_4",
+                    "label" : "Collection"
+                },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__3.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_rating.label",
+      "info": "t:sections.main-collection-product-grid.settings.show_rating.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.enable_quick_buy.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__1.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
+      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+    },
+    {
+      "type": "select",
+      "id": "filter_type",
+      "options": [
+        {
+          "value": "horizontal",
+          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__1.label"
+        },
+        {
+          "value": "vertical",
+          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__2.label"
+        },
+        {
+          "value": "drawer",
+          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__3.label"
+        }
+      ],
+      "default": "horizontal",
+      "label": "t:sections.main-collection-product-grid.settings.filter_type.label",
+      "info": "t:sections.main-collection-product-grid.settings.filter_type.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header_mobile.content"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "t:sections.main-collection-product-grid.settings.columns_mobile.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__2.label"
+        }
+      ]
+    }
+    ],
+    "presets":
+      [
+          {
+              "name" : "Collection Tabs",
+              "category" : "Custom Sections"
+          }
+      ]
+  }
+{% endschema %}

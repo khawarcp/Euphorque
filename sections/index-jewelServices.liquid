@@ -1,0 +1,92 @@
+<section class="jewelry-sec">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 mb-5">
+				<div class="jewelry-img">
+                  {% if section.settings.image != blank %}
+					<img src="{{ section.settings.image | img_url : 'master' }}" loading="lazy" alt="{{ section.settings.image.alt }}" class="img-fluid">
+                    {% else %}
+                      {{ 'product-1' | placeholder_svg_tag  }}
+                    {% endif %}
+				</div>
+			</div>
+				<div class="col-lg-4">
+					<div class="jewelry-content">
+						<h2 class="section-heading mb-3"> {{ section.settings.heading }} </h2>
+						<p class="mb-3">{{ section.settings.info }}</p>
+						<div class="d-flex justify-content-between">
+							<div class="segnature-img align-self-center">								
+                               {% if section.settings.image != blank %}
+            					<img src="{{ section.settings.signature | img_url : 'master' }}" loading="lazy" alt="{{ section.settings.signature.alt }}" class="img-fluid">
+                                {% else %}
+                                  {{ 'product-1' | placeholder_svg_tag  }}
+                                {% endif %}
+							</div>
+							<div class="jewelry-service">
+								<h4> {{ section.settings.services_heading }} </h4>
+
+								<ul>
+									{{ section.settings.info_list }}								
+								</ul>
+						
+
+							</div>
+						</div>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+</section>
+
+{% schema %}
+  {
+    "name": "Jewelry Services",
+    "settings": 
+    [
+        {
+            "type" : "image_picker",
+            "id" : "image",
+            "label" : "Image"
+        },
+        {
+            "type" : "image_picker",
+            "id" : "signature",
+            "label" : "Signature Image"
+        },
+        {
+            "type" : "text",
+            "id" : "heading",
+            "label" : "Heading"
+        },
+        {
+            "type" : "textarea",
+            "id" : "info",
+            "label" : "Text"
+        },
+        {
+            "type" : "text",
+            "id" : "services_heading",
+            "label" : "Services Heading"
+        },
+        {
+            "type" : "html",
+            "id" : "info_list",
+            "label" : "Service List"
+        }
+    ],
+    "presets":
+      [
+          {
+              "name" : "Jewelry Services",
+              "category" : "Custom Sections"
+          }
+      ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,142 @@
+<footer class="footer">
+	
+	<div class="footer-content">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-lg-0">
+					 <div class="footer-logo text-center mb-5">
+					 	<a href="{{ routes.root_url }}">
+					 		<img src="{{ section.settings.footer_logo | img_url : "master" }}" laoding="lazy" alt="{{ shop.name }}" class="img-fluid">
+					 	</a>
+					 </div>
+					 <p class="text-center"> &copy; {{ 'now' | date : "%Y" }} {{ shop.name }} </p>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-lg-0">
+					<div class="contact">
+						<h4 class="mb-4">{{ section.settings.heading_1 }}</h4>
+						<address>{{ section.settings.address }}</address>
+                        <a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a>
+                        <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4  col-lg-3 mb-5 mb-lg-0">
+					<div class="Navigation">
+						<h4 class="mb-4">{{ section.settings.nav_heading }}</h4>
+						<ul>
+                           {% for link in linklists[section.settings.footer_menu].links %}
+							<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                             {% endfor %}
+						</ul>
+
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-12 col-lg-3 mb-5 mb-lg-0">
+					<div class="Newsletter">
+						<h4 class="mb-4"> {{ section.settings.heading_2 }} </h4>
+						<p class="mb-5"> {{ section.settings.subheading }} </p>
+                       {% form 'customer', class: 'newsletter-form' %}
+                          <input type="hidden" name="contact[tags]" value="newsletter">  
+                      <div>		
+                        <input
+                                id="NewsletterForm--{{ section.id }}"
+                                type="email"
+                                name="contact[email]"  
+                                 class="form-control"
+                                value="{{ form.email }}"
+                                aria-required="true"
+                                autocorrect="off"
+                                autocapitalize="off"
+                                autocomplete="email"
+                                {% if form.errors %}
+                                  autofocus
+                                  aria-invalid="true"
+                                  aria-describedby="Newsletter-error--{{ section.id }}"
+                                {% elsif form.posted_successfully? %}
+                                  aria-describedby="Newsletter-success--{{ section.id }}"
+                                {% endif %}
+                                placeholder="{{ 'newsletter.label' | t }}"
+                                required
+                              >
+            			<button class="form-btn">
+                          {% render 'btn-arrow' %}
+                         </button>
+                      </div>
+                    {%- if form.errors -%}
+                              <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
+                            {%- endif -%}
+                      {%- if form.posted_successfully? -%}
+                            <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="Newsletter-success--{{ section.id }}" tabindex="-1" autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h3>
+                          {%- endif -%}
+            		{% endform %}
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": 
+    [
+         {
+              "type" : "image_picker",
+              "id" : "footer_logo",
+              "label" : "Logo"
+          },
+          {
+              "type" : "text",
+              "id" : "nav_heading",
+              "label" : "Navigation Heading"
+          },
+          {
+              "type" : "link_list",
+              "id" : "footer_menu",
+              "label" : "Menu"
+          },
+          {
+              "type" : "header",
+              "content" : "Contact Details"
+          },
+          {
+              "type" : "text",
+              "id" : "heading_1",
+              "label" : "Heading"
+          },
+          {
+              "type" : "text",
+              "id" : "address",
+              "label" : "Address"
+          },
+          {
+              "type" : "text",
+              "id" : "phone",
+              "label" : "Phone Number"
+          },
+          {
+              "type" : "text",
+              "id" : "email",
+              "label" : "Email Address"
+          },
+          {
+              "type" : "header",
+              "content" : "Newsletter"
+          },
+          {
+              "type" : "text",
+              "id" : "heading_2",
+              "label" : "Heading"
+          },
+          {
+              "type" : "text",
+              "id" : "subheading",
+              "label" : "Subheading"
+          }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

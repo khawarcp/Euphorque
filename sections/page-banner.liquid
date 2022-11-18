@@ -1,0 +1,40 @@
+<div class="banner">
+  <section class="inner-banner">
+      <h1 class="text-center">
+           {% if template contains 'page'  %}
+             {{ page.title }}
+            {% elsif template contains 'collection' %}
+               {{ collection.title }}
+             {% elsif template contains 'product' %}
+               {{ product.title }}
+             {% elsif template contains 'search' %}
+               {% if search.terms != blank %}  
+                   {{ search.terms }}
+                 {% else %}
+                   Search
+                {% endif %}
+             {% elsif template contains 'cart' %}
+               Cart
+             {% endif %}
+       </h1>
+  </section>
+</div>
+{% schema %}
+  {
+    "name": "Page Banner",
+    "settings": [],
+    "presets":
+      [
+          {
+              "name" : "Page Banner",
+              "category" : "Custom Sections"
+          }
+      ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

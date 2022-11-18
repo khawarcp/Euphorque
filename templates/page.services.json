@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "12a53d63-c889-4e1c-b619-31479b7fc543": {
+      "type": "page-banner",
+      "settings": {
+      }
+    },
+    "main": {
+      "type": "main-page-content",
+      "settings": {
+        "image": "{{ page.metafields.custom.image.value }}"
+      }
+    },
+    "form": {
+      "type": "services-form",
+      "settings": {
+        "heading": "Fill The Form Below"
+      }
+    }
+  },
+  "order": [
+    "12a53d63-c889-4e1c-b619-31479b7fc543",
+    "main",
+    "form"
+  ]
+}

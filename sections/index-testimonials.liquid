@@ -1,0 +1,83 @@
+<section class="testimonials-sec">
+	<div class="container">
+		<div class="testimonials">
+			<div class="mask">
+                 <h2 class="section-heading mb-4">{{ section.settings.heading }}</h2>
+				<div class="  slideset">
+					{% for block in section.blocks %}
+				    <div class="testimonials-content col-12 slide">
+					  	
+					  <blockquote class="mb-4">
+					  	<q>{{ block.settings.comment }}</q>
+					  </blockquote>
+					  <div class="testimonials-segnature">
+                        {% if block.settings.image != blank %}
+					  		<img src="{{ block.settings.image | img_url : 'master' }}" loading="lazy" alt="{{ block.settings.image.alt }}" class="img-fluid">
+                          {% endif %}
+					  </div>
+					  <span class="clint-name"> {{ block.settings.name }} </span>
+
+					</div>
+                    {% endfor %}
+				</div>
+				<div class="slider-nav">
+				  		{% render 'slider-prev' %}
+                          {% render 'slider-next' %}	
+				  			</div>
+			</div>
+			
+		</div>
+		
+	</div>
+</section>
+{% schema %}
+  {
+    "name": "Testimoinals",
+    "settings": 
+    [
+        {
+            "type" : "text",
+            "id" : "heading",
+            "label" : "Heading"
+        }
+    ],
+    "blocks":
+      [
+          {
+              "name" : "Testimonial",
+              "type" : "Testimonial",
+              "settings":
+              [
+                  {
+                      "type" : "textarea",
+                      "id" : "comment",
+                      "label" : "Comment"
+                  },
+                  {
+                      "type" : "text",
+                      "id" : "name",
+                      "label" : "Name"
+                  },
+                  {
+                      "type" : "image_picker",
+                      "id" : "image",
+                      "label" : "Image"
+                  }
+              ]
+          }
+      ],
+    "presets":
+      [
+          {
+              "name" : "Custom Testimonials",
+              "category" : "Custom Sections"
+          }
+      ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "69261f63-8d20-40d2-b3d1-fe3e5d06b89e": {
+      "type": "page-banner",
+      "settings": {
+      }
+    },
+    "form": {
+      "type": "contact-contact-form",
+      "settings": {
+        "heading": "Get in touch"
+      }
+    }
+  },
+  "order": [
+    "69261f63-8d20-40d2-b3d1-fe3e5d06b89e",
+    "form"
+  ]
+}

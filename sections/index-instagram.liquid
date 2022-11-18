@@ -1,0 +1,68 @@
+<div class="instagram">
+      <div class="container">
+          <div class="row justify-content-center">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'heading' %}
+              <div class="col-sm-3 mb-5 mb-sm-0">
+                  <div class="instagram-content">
+                      <h2 class="section-heading"> {{ block.settings.heading }} </h2>
+                      {{ block.settings.info }}
+                  </div>                
+              </div>
+             {% when 'instagram' %}
+                <div class="col-sm-9 mb-5 mb-sm-0">
+                    {{ block.settings.instafe }}
+                </div>
+              </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+      </div>
+  </div>
+{% schema %}
+  {
+    "name": "Instagram Section",
+    "settings": [],
+    "blocks":
+    [
+        {
+            "type" : "instagram",
+            "name" : "instagram",
+            "limit" : 1,
+            "settings":
+            [
+                {
+                  "type" : "text",
+                  "id" : "instafe",
+                  "label" : "Instagram Shortcode"
+                }
+            ]
+        },
+        {
+            "type" : "heading",
+            "name" : "Heading",
+            "limit" : 1,
+            "settings":
+            [
+                {
+                  "type" : "text",
+                  "id" : "heading",
+                  "label" : "Heading"
+                },
+                {
+                  "type" : "richtext",
+                  "id" : "info",
+                  "label" : "Text"
+                }
+            ]
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

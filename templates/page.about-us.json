@@ -1,0 +1,50 @@
+{
+  "sections": {
+    "b1cd1733-ea2b-4d25-a075-d8a1bad48fa2": {
+      "type": "page-banner",
+      "settings": {
+      }
+    },
+    "main": {
+      "type": "about-page-content",
+      "settings": {
+        "heading": "About Euphoriqeu",
+        "image": "shopify:\/\/shop_images\/abt-img.png"
+      }
+    },
+    "9f1956e4-309e-4d12-a169-788e7603a17c": {
+      "type": "about-accessories",
+      "blocks": {
+        "4dd75d92-f5e3-433a-a5c3-e77e42c25570": {
+          "type": "Product",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ass-1.jpg",
+            "product": "silver-pendent"
+          }
+        },
+        "3bbfec39-d73f-4f34-9d9e-a3162a3fd60b": {
+          "type": "Product",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ass-2.jpg",
+            "product": "silver-pendent"
+          }
+        }
+      },
+      "block_order": [
+        "4dd75d92-f5e3-433a-a5c3-e77e42c25570",
+        "3bbfec39-d73f-4f34-9d9e-a3162a3fd60b"
+      ],
+      "settings": {
+        "heading": "Unique<br> accessories for <br>different styles",
+        "text": "It is a long established fact that a reader will be<br> distracted by the readable content of a page when<br> looking at its layout. The point of using Lorem<br> Ipsum is that it has a more-or-less normal<br> distribution of letters.",
+        "button_text": "view more",
+        "button_url": "shopify:\/\/collections\/accessories"
+      }
+    }
+  },
+  "order": [
+    "b1cd1733-ea2b-4d25-a075-d8a1bad48fa2",
+    "main",
+    "9f1956e4-309e-4d12-a169-788e7603a17c"
+  ]
+}

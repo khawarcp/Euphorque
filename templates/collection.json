@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "fad3bbf0-9250-4266-8194-a5b06d9c2783": {
+      "type": "page-banner",
+      "settings": {
+      }
+    },
+    "product-grid": {
+      "type": "custom-collection-product-grid",
+      "settings": {
+        "heading": "New stunning <br>  jewelry designs",
+        "collection_1": "accessories",
+        "collection_2": "rectangle",
+        "collection_3": "square",
+        "collection_4": "ornaments",
+        "show_rating": false,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "columns_mobile": "2"
+      }
+    }
+  },
+  "order": [
+    "fad3bbf0-9250-4266-8194-a5b06d9c2783",
+    "product-grid"
+  ]
+}

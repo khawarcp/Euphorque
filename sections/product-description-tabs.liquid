@@ -1,0 +1,74 @@
+<section class="product-additional-info p-60">
+	<div class="container">
+		<div class="additional-info">
+			<ul class="nav nav-tabs" id="myTab" role="tablist">
+              {% for block in section.blocks %}
+                 {% case block.type %}
+                   {% when "description" %}
+				  <li class="nav-item" role="presentation">
+				    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Description</button>
+				  </li>
+              {% when "additional" %}
+				  <li class="nav-item" role="presentation">
+				    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">additional information</button>
+				  </li>
+              {% when "@app" %}
+				  <li class="nav-item" role="presentation">
+				    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">reviews</button>
+				  </li>
+               {% endcase %}
+              {% endfor %}
+				</ul>
+				<div class="tab-content" id="myTabContent">
+                  {% for block in section.blocks %}
+                     {% case block.type %}
+                       {% when "description" %}
+				  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+				  	 {{ product.description }}
+				  </div>
+                  {% when "additional" %}
+                       {% if block.settings.ingredient_name != blank %}
+				  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+				  	{{ block.settings.ingredient_name }}
+				  </div>
+                         {% endif %}
+                   {% when "@app" %}
+				  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+				  	{% render block %}
+				  </div>
+                  {% endcase %}
+                   {% endfor %}
+				</div>
+		</div>
+	</div>
+</section>
+{% schema %}
+  {
+    "name": "Product Tabbing",
+    "settings": [],
+    "blocks":
+    [
+        {
+            "type" : "@app"           
+        },
+        {
+          "type" : "description",
+            "name" : "description",
+            "limit" : 1
+        },
+        {
+            "type" : "additional",
+            "name" : "Additional Information",
+            "limit" : 1,
+            "settings":
+            [
+                {
+                  "type" : "richtext",
+                  "id" : "ingredient_name",
+                  "label" : "Ingredient Name"
+                }
+            ]
+        } 
+    ]
+  }
+{% endschema %}

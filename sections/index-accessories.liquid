@@ -1,0 +1,156 @@
+<section class="accessories ">
+	<div class="container">
+        <div class="row justify-content-center">
+	        <div class="col-sm-6 col-lg-4 align-self-center mb-5 mb-lg-0">
+				<div class="content">
+					<h2 class="section-heading mb-4"> {{ section.settings.heading }} </h2>
+					<p class="mb-5">{{ section.settings.text }}</p>
+                    {% if section.settings.button_url != blank %}
+						<a href="{{ section.settings.button_url }}"><button class="view-more-btn">
+												{% render 'btn-border' %}
+												<span>{{ section.settings.button_text }}</span>
+											</button></a>
+                      {% endif %}
+				</div>
+			</div>
+          {% for block in section.blocks %}
+            {% assign product = all_products[block.settings.product] %}
+			<div class="col-sm-6 col-lg-4 mb-5 mb-lg-0">
+				<div class="accessories-img">
+					{% if block.settings.image != blank %}
+					  		<img src="{{ block.settings.image | img_url : 'master' }}" loading="lazy" alt="{{ block.settings.image.alt }}" class="img-fluid">
+                      {% else %}
+                        {{ 'product-1' | placeholder_svg_tag }}
+                          {% endif %}
+					<div class="accessories-img-hover">
+						<div class="product-accessories">
+							{% if product.featured_image != blank %}
+					  		<img src="{{ product.featured_image | img_url : 'master' }}" loading="lazy" alt="{{ product.featured_image.alt }}" class="img-fluid">
+                      {% else %}
+                        {{ 'product-1' | placeholder_svg_tag }}
+                          {% endif %}
+						</div>
+						<h3 class="product-name"> {{ product.title }} </h3>
+						<div class="d-flex justify-content-between">
+							<p class="product-price">  {% render 'price', product: product, price_class: '' %} </p>
+							<div>
+                              {%- assign product_form_id = 'quick-add-' | append: section_id | append: product.id -%}
+                                <product-form>
+                                  {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+                                    <input
+                                      type="hidden"
+                                      name="id"
+                                      value="{{ product.selected_or_first_available_variant.id }}"
+                                      disabled
+                                    >
+                                    <button
+                                      id="{{ product_form_id }}-submit"
+                                      type="submit"
+                                      name="add"
+                                      class="quick-add__submit button button--full-width button--secondary"
+                                      aria-haspopup="dialog"
+                                      aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ product.id }}"
+                                      aria-live="polite"
+                                      data-sold-out-message="true"
+                                      {% if product.selected_or_first_available_variant.available == false %}
+                                        disabled
+                                      {% endif %}
+                                    >
+                                      <span>
+                                        {%- if product.selected_or_first_available_variant.available -%}
+                                         <img src="{{ 'cart.png' | asset_img_url : "master" }}" alt="cart" loading="lazy" class="img-fluid">
+                                        {%- else -%}
+                                          {{ 'products.product.sold_out' | t }}
+                                        {%- endif -%}
+                                      </span>
+                                      <span class="sold-out-message hidden">
+                                        {{ 'products.product.sold_out' | t }}
+                                      </span>
+                                      <div class="loading-overlay__spinner hidden">
+                                        <svg
+                                          aria-hidden="true"
+                                          focusable="false"
+                                          role="presentation"
+                                          class="spinner"
+                                          viewBox="0 0 66 66"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                                        </svg>
+                                      </div>
+                                    </button>
+                                  {%- endform -%}
+                                </product-form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+          {% endfor %}
+        </div>
+	</div>
+	
+</section>
+
+{% schema %}
+  {
+    "name": "Accessories",
+    "settings": 
+      [
+          {
+                      "type" : "text",
+                      "id" : "heading",
+                      "label" : "Heading"
+                  },
+                  {
+                      "type" : "textarea",
+                      "id" : "text",
+                      "label" : "Text"
+                  },
+                  {
+                      "type" : "text",
+                      "id" : "button_text",
+                      "label" : "Button Text"
+                  },
+                  {
+                      "type" : "url",
+                      "id" : "button_url",
+                      "label" : "Button url"
+                  }
+      ],
+    "blocks":
+      [
+          {
+              "name" : "Product",
+              "type" : "Product",
+              "limit" : 2,
+              "settings":
+              [
+                  {
+                      "type" : "image_picker",
+                      "id" : "image",
+                      "label" : "Image"
+                  },
+                  {
+                      "type" : "product",
+                      "id" : "product",
+                      "label" : "Product"
+                  }
+              ]
+          }
+      ],
+    "presets":
+      [
+          {
+              "name" : "Accessories",
+              "category" : "Custom Sections"
+          }
+      ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

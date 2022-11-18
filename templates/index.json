@@ -1,0 +1,157 @@
+{
+  "sections": {
+    "fbe3e16f-1022-428b-bc4e-0446e47f39ad": {
+      "type": "index-banner",
+      "settings": {
+        "heading": "Always be on<br> trend with<br> unique pieces",
+        "image": "shopify:\/\/shop_images\/popup-logo.png",
+        "button_text": "view more",
+        "button_url": "#",
+        "product_1": "shiny-ornament",
+        "product_2": "shiny-ornament-1"
+      }
+    },
+    "2a30375b-4e7e-490b-8ba3-03451c28aec1": {
+      "type": "index-collection-tabs",
+      "settings": {
+        "heading": "New stunning jewelry designs",
+        "collection_1": "accessories",
+        "collection_2": "rectangle",
+        "collection_3": "square",
+        "collection_4": "ornaments",
+        "show_rating": false,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "columns_mobile": "2"
+      }
+    },
+    "0c3e258c-113b-4771-9a7a-e8767d884272": {
+      "type": "index-jewelServices",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/jelwery-img.jpg",
+        "signature": "shopify:\/\/shop_images\/seg.png",
+        "heading": "Elegant and modern<br> jewelry specially<br> designed for your<br> every occasion",
+        "info": "Lorem Ipsum is simply dummy text of the printing<br> and typesetting industry. Lorem Ipsum has been<br> the industry's standard dummy text .",
+        "services_heading": "Services",
+        "info_list": "<li>Custom Design<\/li>\n\t\t\t\t\t\t\t\t\t<li>Quality Silvers<\/li>\n\t\t\t\t\t\t\t\t\t<li>Jewelry Restore<\/li>\n\t\t\t\t\t\t\t\t\t<li>Polishing<\/li>"
+      }
+    },
+    "e47d9e0c-d291-4fdf-a08e-5842dc97dc96": {
+      "type": "index-testimonials",
+      "blocks": {
+        "b75eabb6-189e-47c0-a4ed-a868c0aac9f1": {
+          "type": "Testimonial",
+          "settings": {
+            "comment": "Lorem ipsum dolor sit amet, tempor labitur no duo, posse errem altera ex ius. Meis feugiat intellegat has, eu euismod eligendi cum. Ius nonumy perpetua disentias ne mea ius.",
+            "name": "Bench Jeweler",
+            "image": "shopify:\/\/shop_images\/testimonials-segnature.png"
+          }
+        },
+        "3da5513b-2d78-47d4-a2b8-29e80c9532a1": {
+          "type": "Testimonial",
+          "settings": {
+            "comment": "Lorem ipsum dolor sit amet, tempor labitur no duo, posse errem altera ex ius. Meis feugiat intellegat has, eu euismod eligendi cum. Ius nonumy perpetua disentias ne mea ius.",
+            "name": "Bench Jeweler",
+            "image": "shopify:\/\/shop_images\/testimonials-segnature.png"
+          }
+        },
+        "9afffc3c-d1df-403e-8ffc-a3f22b4b4e93": {
+          "type": "Testimonial",
+          "settings": {
+            "comment": "Lorem ipsum dolor sit amet, tempor labitur no duo, posse errem altera ex ius. Meis feugiat intellegat has, eu euismod eligendi cum. Ius nonumy perpetua disentias ne mea ius.",
+            "name": "Bench Jeweler",
+            "image": "shopify:\/\/shop_images\/testimonials-segnature.png"
+          }
+        }
+      },
+      "block_order": [
+        "b75eabb6-189e-47c0-a4ed-a868c0aac9f1",
+        "3da5513b-2d78-47d4-a2b8-29e80c9532a1",
+        "9afffc3c-d1df-403e-8ffc-a3f22b4b4e93"
+      ],
+      "settings": {
+        "heading": "Testimonials"
+      }
+    },
+    "04c57dc8-33ef-43f9-a14c-0b77806e1ecc": {
+      "type": "index-accessories",
+      "blocks": {
+        "29c1126f-4a91-4eb9-9e0b-753ec11311da": {
+          "type": "Product",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ass-2.jpg",
+            "product": "silver-pendent"
+          }
+        },
+        "d3061a52-6f28-49ee-bc0f-72d125bf1809": {
+          "type": "Product",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ass-1.jpg",
+            "product": "silver-pendent"
+          }
+        }
+      },
+      "block_order": [
+        "29c1126f-4a91-4eb9-9e0b-753ec11311da",
+        "d3061a52-6f28-49ee-bc0f-72d125bf1809"
+      ],
+      "settings": {
+        "heading": "Unique<br> accessories for <br>different styles",
+        "text": "It is a long established fact that a reader will be<br> distracted by the readable content of a page when<br> looking at its layout. The point of using Lorem<br> Ipsum is that it has a more-or-less normal<br> distribution of letters.",
+        "button_text": "view more",
+        "button_url": "shopify:\/\/collections\/accessories"
+      }
+    },
+    "076ad4ab-b074-4090-bef1-ad58e12b3e1f": {
+      "type": "index-newsletter",
+      "settings": {
+        "heading": "Subscribe to our newsletter<br> for latest products"
+      }
+    },
+    "7fa83545-e25b-4bb0-85be-91ae80716c3f": {
+      "type": "index-blogposts",
+      "settings": {
+        "heading": "Check out our <br>fashion gallery",
+        "blogposts": "news",
+        "article_url": "shopify:\/\/blogs\/news"
+      }
+    },
+    "f756629a-320e-486c-97ec-825de4d7be2f": {
+      "type": "index-instagram",
+      "disabled": true,
+      "blocks": {
+        "9be7a8ff-f68d-4bd9-8d9d-0d036aa65ca7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Instagram",
+            "info": "<p>Follow us on<br\/><a href=\"#\"> @_Euphorique<\/a><\/p>"
+          }
+        },
+        "823311e2-990e-4437-aa87-09c06dec6c5c": {
+          "type": "instagram",
+          "settings": {
+            "instafe": ""
+          }
+        }
+      },
+      "block_order": [
+        "9be7a8ff-f68d-4bd9-8d9d-0d036aa65ca7",
+        "823311e2-990e-4437-aa87-09c06dec6c5c"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "fbe3e16f-1022-428b-bc4e-0446e47f39ad",
+    "2a30375b-4e7e-490b-8ba3-03451c28aec1",
+    "0c3e258c-113b-4771-9a7a-e8767d884272",
+    "e47d9e0c-d291-4fdf-a08e-5842dc97dc96",
+    "04c57dc8-33ef-43f9-a14c-0b77806e1ecc",
+    "076ad4ab-b074-4090-bef1-ad58e12b3e1f",
+    "7fa83545-e25b-4bb0-85be-91ae80716c3f",
+    "f756629a-320e-486c-97ec-825de4d7be2f"
+  ]
+}
